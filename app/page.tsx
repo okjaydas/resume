@@ -4,6 +4,8 @@ import Head from 'next/head';
 import { useState } from 'react';
 import type { NextPage } from 'next';
 
+import FloatingShareButton from "@/components/FloatingShareButton";
+
 const Home: NextPage = () => {
   const [activeTab, setActiveTab] = useState<string>('experience');
 
@@ -63,6 +65,7 @@ const Home: NextPage = () => {
               >
                 LinkedIn
               </a>
+              {/* Floating Share Button only for this page */}
             </div>
             
             {/* Mobile social links */}
@@ -359,7 +362,7 @@ const Home: NextPage = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
               <h2 className="text-xl font-bold">Janmejaya Das</h2>
-              <p className="text-gray-400">Senior Software Engineer</p>
+              <p className="text-gray-400">Software Engineer</p>
             </div>
             <div className="flex flex-col">
               <a href="mailto:janmejaya.das1@gmail.com" className="text-gray-300 hover:text-white mb-1">janmejaya.das1@gmail.com</a>
@@ -375,6 +378,7 @@ const Home: NextPage = () => {
           </div>
         </div>
       </footer>
+      <FloatingShareButton />
     </div>
   );
 };
