@@ -2,8 +2,8 @@
 
 import { Share2, Check } from "lucide-react";
 import { useState, useCallback, useEffect } from "react";
-import html2canvas from 'html2canvas-pro';
-import jsPDF from "jspdf";
+// import html2canvas from 'html2canvas-pro';
+// import jsPDF from "jspdf";
 
 export default function FloatingShareButton() {
     const [copied, setCopied] = useState(false);
