@@ -10,8 +10,8 @@ const Home: NextPage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Head>
-        <title>Janmejaya Das | Senior Software Engineer</title>
-        <meta name="description" content="Personal portfolio of Janmejaya Das, Senior Software Engineer with 12 years of experience in backend technologies, cloud migrations, and system optimizations." />
+        <title>Janmejaya Das | Software Engineer</title>
+        <meta name="description" content="Personal portfolio of Janmejaya Das, Software Engineer with 12 years of experience in backend technologies, cloud migrations, and system optimizations." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -31,9 +31,9 @@ const Home: NextPage = () => {
                 <div className="flex items-baseline gap-2">
                   <h1 className="text-2xl md:text-3xl font-bold">Janmejaya Das</h1>
                   <span className="hidden md:inline-block w-1 h-1 bg-blue-300 rounded-full"></span>
-                  <h2 className="hidden md:block text-sm md:text-base font-light text-blue-200">Senior Software Engineer</h2>
+                  <h2 className="hidden md:block text-sm md:text-base font-light text-blue-200">Software Engineer</h2>
                 </div>
-                <h2 className="md:hidden text-sm font-light text-blue-200 mb-1">Senior Software Engineer</h2>
+                <h2 className="md:hidden text-sm font-light text-blue-200 mb-1">Software Engineer</h2>
                 <p className="text-blue-100 text-xs md:text-sm max-w-xl leading-snug">
                   12+ years in backend technologies, cloud migrations, and system optimizations
                 </p>
@@ -139,7 +139,7 @@ const Home: NextPage = () => {
               <div className="flex justify-between items-start">
                 <div>
                   <h3 className="text-xl font-bold text-gray-800">Microsoft Intune Service Modernization Team</h3>
-                  <p className="text-gray-600 mb-4">Senior Software Engineer</p>
+                  <p className="text-gray-600 mb-4">Software Engineer</p>
                 </div>
                 <span className="text-gray-500 text-sm">Dec 2022 - Present</span>
               </div>
