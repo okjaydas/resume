@@ -1,6 +1,6 @@
 "use client";
 
-import { Share2, Check, FileDown } from "lucide-react";
+import { Share2, Check } from "lucide-react";
 import { useState, useCallback, useEffect } from "react";
 import html2canvas from 'html2canvas-pro';
 import jsPDF from "jspdf";
@@ -37,18 +37,18 @@ export default function FloatingShareButton() {
         }
     }, []);
 
-    const generatePDF = async () => {
-        const element = document.body; // Capture the whole page, or use a specific div like `document.getElementById("resume")`
-        const canvas = await html2canvas(element, { scale: 2, });
-        const imgData = canvas.toDataURL("image/png");
+    // const generatePDF = async () => {
+    //     const element = document.body; // Capture the whole page, or use a specific div like `document.getElementById("resume")`
+    //     const canvas = await html2canvas(element, { scale: 2, });
+    //     const imgData = canvas.toDataURL("image/png");
     
-        const pdf = new jsPDF("p", "mm", "a4");
-        const imgWidth = 210;
-        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+    //     const pdf = new jsPDF("p", "mm", "a4");
+    //     const imgWidth = 210;
+    //     const imgHeight = (canvas.height * imgWidth) / canvas.width;
         
-        pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
-        pdf.save("Resume-Janmejay.pdf");
-      };
+    //     pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+    //     pdf.save("Resume-Janmejay.pdf");
+    //   };
 
     return (
         <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-3">
