@@ -37,7 +37,7 @@ const Home: NextPage = () => {
                 </div>
                 <h2 className="md:hidden text-sm font-light text-blue-200 mb-1">Software Engineer</h2>
                 <p className="text-blue-100 text-xs md:text-sm max-w-xl leading-snug">
-                  12+ years in backend technologies, cloud migrations, and system optimizations
+                  12+ years of experience in backend technologies, system architecture, cloud migrations, and optimizing systems for scalability and efficiency
                 </p>
               </div>
             </div>
