@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import FloatingShareButton from "@/components/FloatingShareButton";
 import MatrixRain from "@/components/MatrixRain";
 
@@ -87,6 +87,44 @@ const TABS = [
   { id: "education", label: "Education" },
   { id: "achievements", label: "Achievements" },
 ] as const;
+
+/* ─── CountUp ─── */
+
+function CountUp({ value, suffix }: { value: number; suffix: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const [display, setDisplay] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          const duration = 1200;
+          const start = performance.now();
+          const step = (now: number) => {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            setDisplay(Math.round(eased * value));
+            if (progress < 1) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [value, hasAnimated]);
+
+  return (
+    <span ref={ref} className="text-xl xl:text-2xl font-bold gradient-text">
+      {display}{suffix}
+    </span>
+  );
+}
 
 /* ─── Component ─── */
 
@@ -181,21 +219,32 @@ export default function Home() {
               >
                 ↓&ensp;Resume PDF
               </a>
-              <a
-                href="mailto:janmejaya.das1@gmail.com"
-                className="glass-card px-4 py-2 xl:px-5 xl:py-2.5 text-xs xl:text-sm font-medium transition-colors"
-                style={{ color: "var(--text-secondary)" }}
+              <button
+                onClick={(e) => {
+                  navigator.clipboard.writeText("janmejaya.das1@gmail.com");
+                  const btn = e.currentTarget;
+                  const original = btn.innerHTML;
+                  btn.innerHTML = "✓&ensp;Copied!";
+                  setTimeout(() => { btn.innerHTML = original; }, 1500);
+                }}
+                className="glass-card px-4 py-2 xl:px-5 xl:py-2.5 text-xs xl:text-sm font-medium transition-colors cursor-pointer"
+                style={{ color: "var(--text-secondary)", border: "none" }}
               >
                 ✉&ensp;Email
-              </a>
+              </button>
               <a
                 href="https://linkedin.com/in/janmejaya-das"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="glass-card px-4 py-2 xl:px-5 xl:py-2.5 text-xs xl:text-sm font-medium transition-colors"
+                className="glass-card px-4 py-2 xl:px-5 xl:py-2.5 text-xs xl:text-sm font-medium transition-all duration-300 flex items-center gap-1.5"
                 style={{ color: "var(--text-secondary)" }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = "#0A66C2"; e.currentTarget.style.boxShadow = "0 0 12px rgba(10,102,194,0.2)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = "var(--text-secondary)"; e.currentTarget.style.boxShadow = "none"; }}
               >
-                in&ensp;LinkedIn
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                </svg>
+                LinkedIn
               </a>
             </div>
 
@@ -212,19 +261,27 @@ export default function Home() {
               >
                 ↓
               </a>
-              <a
-                href="mailto:janmejaya.das1@gmail.com"
-                className="glass-card w-9 h-9 flex items-center justify-center text-sm"
-                style={{ color: "var(--text-secondary)" }}
+              <button
+                onClick={(e) => {
+                  navigator.clipboard.writeText("janmejaya.das1@gmail.com");
+                  const btn = e.currentTarget;
+                  const original = btn.innerHTML;
+                  btn.innerHTML = "✓";
+                  setTimeout(() => { btn.innerHTML = original; }, 1500);
+                }}
+                className="glass-card w-9 h-9 flex items-center justify-center text-sm cursor-pointer"
+                style={{ color: "var(--text-secondary)", border: "none" }}
               >
                 ✉
-              </a>
+              </button>
               <a
                 href="https://linkedin.com/in/janmejaya-das"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="glass-card w-9 h-9 flex items-center justify-center"
+                className="glass-card w-9 h-9 flex items-center justify-center transition-all duration-300"
                 style={{ color: "var(--text-secondary)" }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = "#0A66C2"; e.currentTarget.style.boxShadow = "0 0 12px rgba(10,102,194,0.25)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = "var(--text-secondary)"; e.currentTarget.style.boxShadow = "none"; }}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
@@ -237,6 +294,29 @@ export default function Home() {
 
       {/* ────── Main ────── */}
       <main className="max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto px-4 xl:px-8 2xl:px-12 py-12 xl:py-16 2xl:py-20">
+        {/* Impact Stats */}
+        <div className="mb-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 xl:gap-4">
+            {[
+              { value: 13, suffix: "+", label: "Years of Engineering" },
+              { value: 50, suffix: "+", label: "Microservices Modernized" },
+              { value: 300, suffix: "+TB", label: "Infrastructure Optimized" },
+              { value: 35, suffix: "+", label: "Engineers Led & Mentored" },
+            ].map((stat) => (
+              <div
+                key={stat.label}
+                className="glass-card px-4 py-3 xl:px-5 xl:py-4 text-center"
+                style={{ opacity: 0.85 }}
+              >
+                <CountUp value={stat.value} suffix={stat.suffix} />
+                <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Tab Navigation */}
         <nav
           className="flex flex-wrap justify-center mb-10 border-b"
@@ -602,13 +682,27 @@ export default function Home() {
                   2024 — 2026
                 </span>
               </div>
+              <div className="mt-4 space-y-2">
+                <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+                  <span style={{ color: "var(--accent-cyan)" }}>▸</span>{" "}
+                  Pursued full-time alongside a Senior Software Engineer role at Microsoft, demonstrating commitment to continuous technical growth.
+                </p>
+                <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+                  <span style={{ color: "var(--accent-cyan)" }}>▸</span>{" "}
+                  <strong style={{ color: "var(--text-primary)" }}>Capstone Project:</strong>{" "}
+                  Flood Water Management in Urban Areas — applied IoT sensor networks and real-time data pipelines to model urban flood scenarios.
+                </p>
+                <p className="text-xs leading-relaxed mt-1" style={{ color: "var(--text-muted)", fontStyle: "italic" }}>
+                  Elected IoT specialization to broaden systems thinking beyond pure software into hardware-software boundary design.
+                </p>
+              </div>
             </div>
 
             <div className="glass-card p-6 xl:p-8 animate-fade-in-up stagger-2">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
                 <div>
                   <h3 className="text-lg xl:text-xl font-bold" style={{ color: "var(--text-primary)" }}>
-                    Bachelor of Technology in IT
+                    Bachelor of Technology in Information Technology
                   </h3>
                   <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
                     Biju Patnaik University of Technology, Rourkela
@@ -620,6 +714,16 @@ export default function Home() {
                 >
                   2008 — 2012
                 </span>
+              </div>
+              <div className="mt-4 space-y-2">
+                <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+                  <span style={{ color: "var(--accent-blue)" }}>▸</span>{" "}
+                  <strong style={{ color: "var(--text-primary)" }}>Capstone Project:</strong>{" "}
+                  Semantic Search Engine — built a search system leveraging semantic analysis to improve result relevance beyond keyword matching.
+                </p>
+                <p className="text-xs leading-relaxed mt-1" style={{ color: "var(--text-muted)", fontStyle: "italic" }}>
+                  A foundation that came full circle — now integrating semantic search and LLM-powered inferencing at enterprise scale.
+                </p>
               </div>
             </div>
           </div>
@@ -751,24 +855,32 @@ export default function Home() {
               </p>
             </div>
             <div className="flex items-center gap-4">
-              <a
-                href="mailto:janmejaya.das1@gmail.com"
-                className="text-sm transition-colors"
-                style={{ color: "var(--text-muted)" }}
+              <button
+                onClick={(e) => {
+                  navigator.clipboard.writeText("janmejaya.das1@gmail.com");
+                  const btn = e.currentTarget;
+                  btn.textContent = "✓ Copied!";
+                  setTimeout(() => { btn.textContent = "janmejaya.das1@gmail.com"; }, 1500);
+                }}
+                className="text-sm transition-colors cursor-pointer"
+                style={{ color: "var(--text-muted)", background: "none", border: "none" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text-primary)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
               >
                 janmejaya.das1@gmail.com
-              </a>
+              </button>
               <a
                 href="https://linkedin.com/in/janmejaya-das"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm transition-colors"
+                className="text-sm transition-all duration-300 flex items-center gap-1.5"
                 style={{ color: "var(--text-muted)" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text-primary)")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
+                onMouseEnter={(e) => { e.currentTarget.style.color = "#0A66C2"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = "var(--text-muted)"; }}
               >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                </svg>
                 LinkedIn
               </a>
             </div>
