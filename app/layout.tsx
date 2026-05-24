@@ -27,11 +27,30 @@ export const metadata: Metadata = {
     "AI",
     "System Design",
   ],
+  metadataBase: new URL("https://janmejaydas.vercel.app"),
   openGraph: {
     title: "Janmejaya Das | Software Engineer",
     description:
       "13+ years driving backend architecture, cloud migrations, and AI integration at Microsoft, Amazon & Razorpay.",
+    url: "https://janmejaydas.vercel.app",
+    siteName: "Janmejaya Das — Resume",
+    locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/avatar.jpg",
+        width: 512,
+        height: 512,
+        alt: "Janmejaya Das",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "Janmejaya Das | Software Engineer",
+    description:
+      "13+ years driving backend architecture, cloud migrations, and AI integration at Microsoft, Amazon & Razorpay.",
+    images: ["/avatar.jpg"],
   },
 };
 

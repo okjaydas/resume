@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import FloatingShareButton from "@/components/FloatingShareButton";
+import MatrixRain from "@/components/MatrixRain";
 
 /* ─── Data ─── */
 
@@ -82,14 +83,25 @@ export default function Home() {
     <div className="min-h-screen" style={{ background: "var(--bg-primary)" }}>
       {/* ────── Header ────── */}
       <header className="header-gradient border-b" style={{ borderColor: "var(--glass-border)" }}>
-        <div className="max-w-5xl mx-auto px-4 py-10 md:py-14 relative z-10">
+        <MatrixRain />
+        <div
+          className="max-w-5xl mx-auto px-4 py-10 md:py-14 relative z-10"
+          style={{
+            background: "rgba(11,15,26,0.3)",
+            backdropFilter: "blur(2px)",
+            WebkitBackdropFilter: "blur(2px)",
+            borderRadius: "20px",
+            margin: "0 auto",
+            border: "1px solid rgba(99,102,241,0.08)",
+          }}
+        >
           <div className="flex items-center justify-between">
             {/* Left: Avatar + Info */}
             <div className="flex items-center gap-5">
               {/* Gradient avatar ring */}
               <div className="relative flex-shrink-0">
                 <div
-                  className="w-18 h-18 md:w-22 md:h-22 rounded-full p-[2px] overflow-hidden"
+                  className="w-22 h-22 md:w-40 md:h-40 rounded-full p-[2px] overflow-hidden"
                   style={{ background: "var(--gradient-primary)" }}
                 >
                   <div className="w-full h-full rounded-full overflow-hidden">
@@ -97,7 +109,7 @@ export default function Home() {
                       src="/avatar.jpg"
                       alt="Janmejaya Das"
                       className="w-full h-full object-cover"
-                      style={{ objectPosition: "50% 8%" }}
+                      style={{ objectPosition: "50% 15%", aspectRatio: "1 / 1" }}
                     />
                   </div>
                 </div>
@@ -115,6 +127,7 @@ export default function Home() {
               <div>
                 <h1
                   className="text-2xl md:text-3xl font-bold gradient-text leading-tight"
+                  style={{ textShadow: "0 0 12px rgba(129,140,248,0.25), 0 0 24px rgba(52,217,232,0.1)" }}
                 >
                   Janmejaya Das
                 </h1>
@@ -125,13 +138,13 @@ export default function Home() {
                   >
                     Software Engineer
                   </h2>
-                  <span className="whisper-badge hidden sm:inline-block" title="Open to Staff / Principal roles">
+                  <span className="whisper-badge hidden sm:inline-block" title="Open to Staff / Principal roles" style={{ color: "var(--accent-cyan)", opacity: 0.85 }}>
                     · staff / principal
                   </span>
                 </div>
                 <p
                   className="mt-2 text-xs md:text-sm max-w-xl leading-relaxed"
-                  style={{ color: "var(--text-muted)" }}
+                  style={{ color: "var(--text-secondary)", textShadow: "0 0 8px rgba(0,0,0,0.6)" }}
                 >
                   13+ years driving backend architecture, cloud migrations, AI/LLM integration &amp; engineering leadership at scale
                 </p>
@@ -143,13 +156,14 @@ export default function Home() {
               <a
                 href="/JanmejayaDas-2026.pdf"
                 download
-                className="px-4 py-2 text-xs font-semibold rounded-2xl transition-all duration-300"
+                className="header-cta-btn px-5 py-2.5 text-xs font-semibold rounded-2xl transition-all duration-300"
                 style={{
-                  background: "var(--gradient-primary)",
+                  background: "#f59e0b",
                   color: "#0b0f1a",
+                  boxShadow: "0 0 10px rgba(245,158,11,0.2), 0 0 20px rgba(245,158,11,0.1)",
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.85"; e.currentTarget.style.transform = "translateY(-1px)"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; e.currentTarget.style.transform = "translateY(0)"; }}
+                onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.background = "#fbbf24"; e.currentTarget.style.boxShadow = "0 0 14px rgba(245,158,11,0.35), 0 0 28px rgba(245,158,11,0.2)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.background = "#f59e0b"; e.currentTarget.style.boxShadow = "0 0 10px rgba(245,158,11,0.2), 0 0 20px rgba(245,158,11,0.1)"; }}
               >
                 ↓&ensp;Resume PDF
               </a>
