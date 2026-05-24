@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
@@ -65,6 +66,11 @@ export default function RootLayout({
       <body className={`${inter.variable} antialiased`}>
         {children}
         <Analytics />
+        <Script
+          src="https://cloud.umami.is/script.js"
+          data-website-id="460247bf-2010-41c1-8788-1dc1e94a8aa2"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

@@ -1,8 +1,17 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import FloatingShareButton from "@/components/FloatingShareButton";
 import MatrixRain from "@/components/MatrixRain";
+
+/* ─── Umami type declaration ─── */
+declare global {
+  interface Window {
+    umami?: {
+      track: (event: string, data?: Record<string, string | number>) => void;
+    };
+  }
+}
 
 /* ─── Data ─── */
 
@@ -130,6 +139,49 @@ function CountUp({ value, suffix }: { value: number; suffix: string }) {
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<string>("experience");
+  const firedRef = useRef<Set<string>>(new Set());
+  const statsRef = useRef<HTMLDivElement>(null);
+  const testimonialsRef = useRef<HTMLElement>(null);
+  const footerRef = useRef<HTMLElement>(null);
+
+  // Fire a custom event at most once per page load
+  const trackOnce = useCallback((event: string, data?: Record<string, string>) => {
+    if (firedRef.current.has(event)) return;
+    firedRef.current.add(event);
+    window.umami?.track(event, data);
+  }, []);
+
+  // Track tab switches
+  const handleTabClick = useCallback((tabId: string) => {
+    setActiveTab(tabId);
+    window.umami?.track("tab_viewed", { tab: tabId });
+  }, []);
+
+  // Scroll-depth tracking via IntersectionObserver
+  useEffect(() => {
+    const targets: [React.RefObject<HTMLElement | null>, string][] = [
+      [statsRef, "scroll_stats"],
+      [testimonialsRef, "scroll_testimonials"],
+      [footerRef, "scroll_footer"],
+    ];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const match = targets.find(([ref]) => ref.current === entry.target);
+          if (match) trackOnce(match[1]);
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    targets.forEach(([ref]) => {
+      if (ref.current) observer.observe(ref.current);
+    });
+
+    return () => observer.disconnect();
+  }, [trackOnce]);
 
   return (
     <div className="min-h-screen" style={{ background: "var(--bg-primary)" }}>
@@ -216,12 +268,14 @@ export default function Home() {
                 }}
                 onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.background = "#fbbf24"; e.currentTarget.style.boxShadow = "0 0 14px rgba(245,158,11,0.35), 0 0 28px rgba(245,158,11,0.2)"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.background = "#f59e0b"; e.currentTarget.style.boxShadow = "0 0 10px rgba(245,158,11,0.2), 0 0 20px rgba(245,158,11,0.1)"; }}
+                onClick={() => trackOnce("cta_pdf_download")}
               >
                 ↓&ensp;Resume PDF
               </a>
               <button
                 onClick={(e) => {
                   navigator.clipboard.writeText("janmejaya.das1@gmail.com");
+                  trackOnce("cta_email_copy");
                   const btn = e.currentTarget;
                   const original = btn.innerHTML;
                   btn.innerHTML = "✓&ensp;Copied!";
@@ -240,6 +294,7 @@ export default function Home() {
                 style={{ color: "var(--text-secondary)" }}
                 onMouseEnter={(e) => { e.currentTarget.style.color = "#0A66C2"; e.currentTarget.style.boxShadow = "0 0 12px rgba(10,102,194,0.2)"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.color = "var(--text-secondary)"; e.currentTarget.style.boxShadow = "none"; }}
+                onClick={() => trackOnce("cta_linkedin_click")}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
@@ -258,12 +313,14 @@ export default function Home() {
                   background: "var(--gradient-primary)",
                   color: "#0b0f1a",
                 }}
+                onClick={() => trackOnce("cta_pdf_download")}
               >
                 ↓
               </a>
               <button
                 onClick={(e) => {
                   navigator.clipboard.writeText("janmejaya.das1@gmail.com");
+                  trackOnce("cta_email_copy");
                   const btn = e.currentTarget;
                   const original = btn.innerHTML;
                   btn.innerHTML = "✓";
@@ -282,6 +339,7 @@ export default function Home() {
                 style={{ color: "var(--text-secondary)" }}
                 onMouseEnter={(e) => { e.currentTarget.style.color = "#0A66C2"; e.currentTarget.style.boxShadow = "0 0 12px rgba(10,102,194,0.25)"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.color = "var(--text-secondary)"; e.currentTarget.style.boxShadow = "none"; }}
+                onClick={() => trackOnce("cta_linkedin_click")}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
@@ -295,7 +353,7 @@ export default function Home() {
       {/* ────── Main ────── */}
       <main className="max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto px-4 xl:px-8 2xl:px-12 py-12 xl:py-16 2xl:py-20">
         {/* Impact Stats */}
-        <div className="mb-10">
+        <div className="mb-10" ref={statsRef}>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 xl:gap-4">
             {[
               { value: 13, suffix: "+", label: "Years of Engineering" },
@@ -326,7 +384,7 @@ export default function Home() {
             <button
               key={tab.id}
               className={`tab-btn ${activeTab === tab.id ? "active" : ""}`}
-              onClick={() => setActiveTab(tab.id)}
+              onClick={() => handleTabClick(tab.id)}
             >
               {tab.label}
             </button>
@@ -730,7 +788,7 @@ export default function Home() {
         </section>
 
         {/* ─── Achievements ─── */}
-        <section className={activeTab === "achievements" ? "block" : "hidden"}>
+        <section ref={testimonialsRef} className={activeTab === "achievements" ? "block" : "hidden"}>
           <h2 className="section-heading" style={{ color: "var(--text-primary)" }}>
             Recognitions &amp; Achievements
           </h2>
@@ -845,7 +903,7 @@ export default function Home() {
       </main>
 
       {/* ────── Footer ────── */}
-      <footer className="footer-gradient py-10">
+      <footer ref={footerRef} className="footer-gradient py-10">
         <div className="max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto px-4 xl:px-8 2xl:px-12">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-center md:text-left">
