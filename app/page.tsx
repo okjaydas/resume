@@ -7,8 +7,68 @@ import MatrixRain from "@/components/MatrixRain";
 /* ─── Data ─── */
 
 const SKILLS = {
+  leadership: {
+    label: "Architecture & Leadership",
+    tagline: "How I think",
+    color: "amber" as const,
+    items: [
+      "Distributed Systems Design",
+      "High Availability",
+      "Migration Strategy",
+      "Technical Governance",
+      "Observability",
+      "Quality of Service",
+      "Engineering Mentorship",
+    ],
+  },
+  cloud: {
+    label: "Cloud & Data",
+    tagline: "What I build on",
+    color: "purple" as const,
+    items: [
+      "Azure Cosmos DB",
+      "Azure Redis",
+      "Azure Storage",
+      "AWS DynamoDB",
+      "AWS SQS",
+      "AWS Lambda",
+      "AWS S3",
+      "Google Cloud Storage",
+      "Microsoft Substrate",
+    ],
+  },
+  platform: {
+    label: "Platform & DevOps",
+    tagline: "How I ship",
+    color: "green" as const,
+    items: [
+      "Kubernetes",
+      "Docker",
+      "Kafka",
+      "Service Fabric",
+      "Spring Boot",
+      "React",
+      "Jenkins",
+      "Spinnaker",
+      "Grafana",
+      "IaC",
+    ],
+  },
+  ai: {
+    label: "AI & Machine Learning",
+    tagline: "What I'm integrating",
+    color: "cyan" as const,
+    items: [
+      "LLM Integration",
+      "Semantic Search",
+      "Azure ML",
+      "AI Foundry",
+      "Azure Cognitive Search",
+    ],
+  },
   languages: {
     label: "Languages",
+    tagline: "What I write in",
     color: "" as const,
     items: [
       "Java",
@@ -17,52 +77,6 @@ const SKILLS = {
       "JavaScript / TypeScript",
       "SQL",
       "KQL",
-      "PHP",
-    ],
-  },
-  cloud: {
-    label: "Cloud Infrastructure",
-    color: "purple" as const,
-    items: [
-      "Azure Cosmos DB",
-      "Azure Redis",
-      "Azure Storage",
-      "Service Fabric",
-      "Azure ML",
-      "AI Foundry",
-      "AWS DynamoDB",
-      "AWS SQS",
-      "AWS Lambda",
-      "AWS S3",
-      "Google Cloud Storage",
-      "Microsoft Substrate",
-      "IaC",
-    ],
-  },
-  architecture: {
-    label: "Architecture & Tools",
-    color: "green" as const,
-    items: [
-      "Kubernetes",
-      "Docker",
-      "Kafka",
-      "Spring Boot",
-      "React",
-      "Jenkins",
-      "Grafana",
-    ],
-  },
-  ai: {
-    label: "AI & Concepts",
-    color: "cyan" as const,
-    items: [
-      "LLM Integration",
-      "Semantic Search",
-      "High Availability",
-      "Quality of Service",
-      "Distributed Systems Design",
-      "Observability",
-      "Engineering Leadership",
     ],
   },
 };
@@ -146,7 +160,7 @@ export default function Home() {
                   className="mt-2 text-xs md:text-sm xl:text-base max-w-xl xl:max-w-2xl 2xl:max-w-3xl leading-relaxed"
                   style={{ color: "var(--text-secondary)", textShadow: "0 0 8px rgba(0,0,0,0.6)" }}
                 >
-                  13+ years driving backend architecture, cloud migrations, AI/LLM integration &amp; engineering leadership at scale
+                  13+ years architecting high-throughput distributed systems and leading cross-functional engineering teams. Specializing in multi-region cloud migrations, AI/LLM integration, and scaling backend infrastructure at enterprise scale.
                 </p>
               </div>
             </div>
@@ -274,7 +288,7 @@ export default function Home() {
                     <span style={{ color: "var(--accent-cyan)" }}>▸</span>
                     <span>
                       <strong style={{ color: "var(--text-primary)" }}>Architectural Scalability &amp; Migration:</strong>{" "}
-                      Led the scalability architecture for vast-scale user-side features post-General Availability. Architected and executed the critical migration from Microsoft Substrate to native Azure infrastructure, modernizing the stack and reducing operational overhead.
+                      Led the scalability architecture for vast-scale user-side features post-General Availability. Quantified the long-term operational cost of remaining on Microsoft Substrate and drove stakeholder alignment to migrate to native Azure infrastructure — trading short-term feature velocity for durable scalability and significantly reduced operational overhead.
                     </span>
                   </li>
                   <li className="flex gap-2">
@@ -295,7 +309,14 @@ export default function Home() {
                     <span style={{ color: "var(--accent-cyan)" }}>▸</span>
                     <span>
                       <strong style={{ color: "var(--text-primary)" }}>Organizational Leadership:</strong>{" "}
-                      Acted as the technical and operational anchor for an 18-person IDC organization during a critical leadership transition. Directly mentored 5 engineers while monitoring 10 others, maintaining team velocity and morale.
+                      Engineered the operational and technical strategy for an 18-person organization. Standardized cross-border development workflows between US/IDC teams, accelerating feature deployment cycles and resolving systemic technical silos.
+                    </span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span style={{ color: "var(--accent-cyan)" }}>▸</span>
+                    <span>
+                      <strong style={{ color: "var(--text-primary)" }}>Engineering Leadership &amp; Talent Development:</strong>{" "}
+                      Formalized an engineering mentorship program resulting in the successful promotion of 2 high-potential engineers to the next seniority level. Directed end-to-end evaluation, technical onboarding, and career integration for 2 interns, achieving a 100% full-time conversion rate. Established a sustainable mentorship framework that raised team engineering standards and reduced time-to-proficiency for new hires.
                     </span>
                   </li>
                   <li className="flex gap-2">
@@ -332,11 +353,7 @@ export default function Home() {
                 <ul className="mt-4 space-y-3 text-sm xl:text-base leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                   <li className="flex gap-2">
                     <span style={{ color: "var(--accent-blue)" }}>▸</span>
-                    <span>Engineered the service modernization for 50+ microservices in Intune, driving the transformation of Stateful services into a robust Stateless architecture.</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span style={{ color: "var(--accent-blue)" }}>▸</span>
-                    <span>Refactored 20+ components across multiple microservices to shift the storage layer from in-memory to persistent framework, freeing up over 300 TB of memory.</span>
+                    <span>Architected and led the service modernization of 50+ microservices, converting stateful legacy systems to stateless architectures. Justified the investment to product stakeholders by quantifying imminent scalability risks — achieving a 300TB reduction in memory consumption through core storage pattern refactoring and unblocking the Switzerland region expansion.</span>
                   </li>
                   <li className="flex gap-2">
                     <span style={{ color: "var(--accent-blue)" }}>▸</span>
@@ -377,7 +394,7 @@ export default function Home() {
                 <ul className="mt-4 space-y-3 text-sm xl:text-base leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                   <li className="flex gap-2">
                     <span style={{ color: "var(--accent-purple)" }}>▸</span>
-                    <span>Architected and executed the decoupling of a monolithic registration web service into modular components — UI, backend microservices, AWS Lambda, and SQS — improving scalability and maintainability.</span>
+                    <span>Led the architectural transition from monolith to modular microservices for global registration systems, enabling independent scalability and reducing blast radius for critical KYC workflows.</span>
                   </li>
                   <li className="flex gap-2">
                     <span style={{ color: "var(--accent-purple)" }}>▸</span>
@@ -534,11 +551,21 @@ export default function Home() {
                           ? "#22c55e"
                           : category.color === "cyan"
                             ? "var(--accent-cyan)"
-                            : "var(--accent-blue)",
+                            : category.color === "amber"
+                              ? "#f59e0b"
+                              : "var(--accent-blue)",
                   }}
                 >
                   {category.label}
                 </h3>
+                {category.tagline && (
+                  <p
+                    className="text-xs mb-4 -mt-2"
+                    style={{ color: "var(--text-muted)", fontStyle: "italic", opacity: 0.7 }}
+                  >
+                    {category.tagline}
+                  </p>
+                )}
                 <div className="flex flex-wrap gap-2">
                   {category.items.map((item) => (
                     <span key={item} className={`skill-pill ${category.color}`}>
@@ -607,16 +634,16 @@ export default function Home() {
           <div className="mt-8 space-y-6">
             {[
               {
-                title: "Cross-Team Impact",
-                text: "Recognized across multiple teams and services for leading large-scale migrations and driving service modernization with impactful technical expertise.",
+                title: "Architectural Anchor & System Strategy",
+                text: "Recognized by Principal engineering leadership (L64/L65) for deep systemic expertise and authoring rigorous, alignment-driving design documentation. Consistently praised for tackling complex, highly ambiguous problem spaces and establishing a shared architectural vision across distributed domains.",
               },
               {
-                title: "Microsoft Recognition",
-                text: "Delivered critical components and resolved complex issues, earning recognition from senior Microsoft colleagues.",
+                title: "Organizational Capability Multiplier",
+                text: "Consistently highlighted in 360-degree feedback as the primary technical \u201cgo-to\u201d and organizational unblocker. Acknowledged for scaling overall team velocity by fostering an approachable mentorship culture and drastically reducing the time-to-resolution for critical, cross-team blockers.",
               },
               {
-                title: "Documentation Excellence",
-                text: "Received accolades for creating onboarding documents that enabled faster, smoother integration with fewer mistakes, and for assisting team members and others in resolving unknown issues.",
+                title: "Technical Governance & Quality Excellence",
+                text: "Commended for institutionalizing strict engineering standards through proactive and highly insightful code reviews. Recognized for seeing beyond localized bug fixes to identify systemic bottlenecks and prevent architectural drift before it reaches production.",
               },
             ].map((item, i) => (
               <div
@@ -632,6 +659,80 @@ export default function Home() {
                 </h3>
                 <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                   {item.text}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* ── 360° Engineering Perspectives ── */}
+          <h3
+            className="section-heading mt-16"
+            style={{ color: "var(--text-primary)", fontSize: "1.15rem" }}
+          >
+            360° Engineering Perspectives
+          </h3>
+          <p
+            className="text-xs mt-1 mb-8"
+            style={{ color: "var(--text-muted)", fontStyle: "italic" }}
+          >
+            Excerpts from formal peer and leadership evaluations (Microsoft, 2023–2026).
+          </p>
+
+          <div className="space-y-6">
+            {[
+              {
+                topic: "On Architectural Leadership & System Design",
+                quote:
+                  "\u201cJanmejaya serves as the architectural anchor for our most complex microservice domains. He tackles highly ambiguous problem spaces with rigorous, clear design documentation. His ability to establish a shared architectural vision across distributed US and India teams prevents downstream failures before a single line of code is written.\u201d",
+                attribution: "— Principal Software Engineer (L65)",
+              },
+              {
+                topic: "On Technical Governance & Code Quality",
+                quote:
+                  "\u201cHis code reviews are essentially a masterclass in technical governance. People rely heavily on his insights because he doesn\u2019t just point out localized bugs; he identifies systemic bottlenecks and prevents architectural drift. He single-handedly raised the engineering baseline for our entire organization.\u201d",
+                attribution: "— Senior Software Engineer (Peer)",
+              },
+              {
+                topic: "On Mentorship & Team Velocity",
+                quote:
+                  "\u201cAn incredible mentor and a true organizational unblocker. Despite owning massive technical scope, he remains the most approachable \u2018go-to\u2019 engineer on the floor. He has a unique ability to break down complex backend migrations, radically reducing the time-to-proficiency for new hires and junior developers.\u201d",
+                attribution: "— Software Engineer (Mentee)",
+              },
+              {
+                topic: "On Execution & Cross-Team Alignment",
+                quote:
+                  "\u201cWhen a critical, cross-team migration is blocked, Janmejaya is the person who untangles the dependencies. He proactively identifies risks, bridges the communication gap between isolated teams, and ensures we hit our strict SLA commitments with zero production regressions.\u201d",
+                attribution: "— Senior Engineering Manager",
+              },
+            ].map((item, i) => (
+              <div
+                key={item.topic}
+                className={`glass-card p-6 xl:p-8 animate-fade-in-up stagger-${i + 1}`}
+                style={{
+                  borderLeft: "3px solid",
+                  borderImage:
+                    i % 2 === 0
+                      ? "linear-gradient(180deg, var(--accent-cyan), var(--accent-blue)) 1"
+                      : "linear-gradient(180deg, var(--accent-purple), var(--accent-blue)) 1",
+                }}
+              >
+                <h4
+                  className="text-sm font-semibold uppercase tracking-wider mb-3"
+                  style={{ color: i % 2 === 0 ? "var(--accent-cyan)" : "var(--accent-purple)" }}
+                >
+                  {item.topic}
+                </h4>
+                <blockquote
+                  className="text-sm leading-relaxed mb-3"
+                  style={{ color: "var(--text-secondary)", fontStyle: "italic" }}
+                >
+                  {item.quote}
+                </blockquote>
+                <p
+                  className="text-xs font-mono"
+                  style={{ color: "var(--text-muted)", opacity: 0.85 }}
+                >
+                  {item.attribution}
                 </p>
               </div>
             ))}
