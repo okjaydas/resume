@@ -201,25 +201,25 @@ export default function Home() {
         >
           <div className="flex items-center justify-between">
             {/* Left: Avatar + Info */}
-            <div className="flex items-center gap-5">
+            <div className="flex items-stretch md:items-center gap-4 md:gap-5">
               {/* Gradient avatar ring */}
-              <div className="relative flex-shrink-0">
+              <div className="relative flex-shrink-0 py-1 md:py-0">
                 <div
-                  className="w-22 h-22 md:w-40 md:h-40 xl:w-44 xl:h-44 2xl:w-48 2xl:h-48 rounded-full p-[2px] overflow-hidden"
+                  className="w-24 h-full md:w-40 md:h-40 xl:w-44 xl:h-44 2xl:w-48 2xl:h-48 rounded-2xl md:rounded-full p-[2px] overflow-hidden"
                   style={{ background: "var(--gradient-primary)" }}
                 >
-                  <div className="w-full h-full rounded-full overflow-hidden">
+                  <div className="w-full h-full rounded-2xl md:rounded-full overflow-hidden">
                     <img
                       src="/avatar.jpg"
                       alt="Janmejaya Das"
                       className="w-full h-full object-cover"
-                      style={{ objectPosition: "50% 15%", aspectRatio: "1 / 1" }}
+                      style={{ objectPosition: "50% 15%" }}
                     />
                   </div>
                 </div>
                 {/* Online dot */}
                 <span
-                  className="absolute bottom-0.5 right-0.5 w-3.5 h-3.5 rounded-full border-2"
+                  className="absolute bottom-[-2px] right-[-2px] md:bottom-0.5 md:right-0.5 w-3.5 h-3.5 rounded-full border-2"
                   style={{
                     background: "#22c55e",
                     borderColor: "var(--bg-primary)",
@@ -304,7 +304,7 @@ export default function Home() {
             </div>
 
             {/* Mobile links */}
-            <div className="flex md:hidden gap-2">
+            <div className="flex flex-col md:hidden gap-2">
               <a
                 href="/JanmejayaDas-2026.pdf"
                 download
