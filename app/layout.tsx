@@ -1,20 +1,38 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Janmejay",
-  description: "Janmejay Das (Jay) Microsoft",
+  title: "Janmejaya Das | Software Engineer",
+  description:
+    "Janmejaya Das — Software Engineer with 13+ years of experience in backend architecture, cloud migrations, AI/LLM integration, and engineering leadership at Microsoft, Amazon, and Razorpay.",
+  keywords: [
+    "Janmejaya Das",
+    "Software Engineer",
+    "Senior Software Engineer",
+    "Staff Software Engineer",
+    "Lead Software Engineer",
+    "Principal Software Engineer",
+    "Microsoft",
+    "Azure",
+    "Full-Stack",
+    "Cloud Architecture",
+    "LLM",
+    "AI",
+    "System Design",
+  ],
+  openGraph: {
+    title: "Janmejaya Das | Software Engineer",
+    description:
+      "13+ years driving backend architecture, cloud migrations, and AI integration at Microsoft, Amazon & Razorpay.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -24,9 +42,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${inter.variable} antialiased`}>
         {children}
       </body>
     </html>
