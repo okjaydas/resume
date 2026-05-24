@@ -389,7 +389,7 @@ export default function Home() {
                     <span style={{ color: "var(--accent-cyan)" }}>▸</span>
                     <span>
                       <strong style={{ color: "var(--text-primary)" }}>Organizational Leadership:</strong>{" "}
-                      Engineered the operational and technical strategy for an 18-person organization. Standardized cross-border development workflows between US/IDC teams, accelerating feature deployment cycles and resolving systemic technical silos.
+                      Engineered the operational and technical strategy for an 18-person team. Standardized cross-border development workflows between US/IDC teams, accelerating feature deployment cycles and resolving systemic technical silos.
                     </span>
                   </li>
                   <li className="flex gap-2">
@@ -793,7 +793,7 @@ export default function Home() {
               {
                 topic: "On Technical Governance & Code Quality",
                 quote:
-                  "\u201cHis code reviews are essentially a masterclass in technical governance. People rely heavily on his insights because he doesn\u2019t just point out localized bugs; he identifies systemic bottlenecks and prevents architectural drift. He single-handedly raised the engineering baseline for our entire organization.\u201d",
+                  "\u201cHis code reviews are essentially a masterclass in technical governance. People rely heavily on his insights because he doesn\u2019t just point out localized bugs; he identifies systemic bottlenecks and prevents architectural drift. He single-handedly raised the engineering baseline for our entire team.\u201d",
                 attribution: "— Senior Software Engineer (Peer)",
               },
               {
