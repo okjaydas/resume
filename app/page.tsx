@@ -89,14 +89,16 @@ export default function Home() {
               {/* Gradient avatar ring */}
               <div className="relative flex-shrink-0">
                 <div
-                  className="w-18 h-18 md:w-22 md:h-22 rounded-full p-[2px]"
+                  className="w-18 h-18 md:w-22 md:h-22 rounded-full p-[2px] overflow-hidden"
                   style={{ background: "var(--gradient-primary)" }}
                 >
-                  <div
-                    className="w-full h-full rounded-full flex items-center justify-center text-xl md:text-2xl font-bold"
-                    style={{ background: "var(--bg-primary)", color: "var(--text-primary)" }}
-                  >
-                    JD
+                  <div className="w-full h-full rounded-full overflow-hidden">
+                    <img
+                      src="/avatar.jpg"
+                      alt="Janmejaya Das"
+                      className="w-full h-full object-cover"
+                      style={{ objectPosition: "50% 8%" }}
+                    />
                   </div>
                 </div>
                 {/* Online dot */}
