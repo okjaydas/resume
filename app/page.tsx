@@ -85,7 +85,7 @@ export default function Home() {
       <header className="header-gradient border-b" style={{ borderColor: "var(--glass-border)" }}>
         <MatrixRain />
         <div
-          className="max-w-5xl mx-auto px-4 py-10 md:py-14 relative z-10"
+          className="max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto px-4 xl:px-8 2xl:px-12 py-10 md:py-14 xl:py-16 2xl:py-20 relative z-10"
           style={{
             background: "rgba(11,15,26,0.3)",
             backdropFilter: "blur(2px)",
@@ -101,7 +101,7 @@ export default function Home() {
               {/* Gradient avatar ring */}
               <div className="relative flex-shrink-0">
                 <div
-                  className="w-22 h-22 md:w-40 md:h-40 rounded-full p-[2px] overflow-hidden"
+                  className="w-22 h-22 md:w-40 md:h-40 xl:w-44 xl:h-44 2xl:w-48 2xl:h-48 rounded-full p-[2px] overflow-hidden"
                   style={{ background: "var(--gradient-primary)" }}
                 >
                   <div className="w-full h-full rounded-full overflow-hidden">
@@ -126,14 +126,14 @@ export default function Home() {
 
               <div>
                 <h1
-                  className="text-2xl md:text-3xl font-bold gradient-text leading-tight"
+                  className="text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl font-bold gradient-text leading-tight"
                   style={{ textShadow: "0 0 12px rgba(129,140,248,0.25), 0 0 24px rgba(52,217,232,0.1)" }}
                 >
                   Janmejaya Das
                 </h1>
                 <div className="flex items-center gap-2 mt-0.5 flex-wrap">
                   <h2
-                    className="text-sm md:text-base font-medium"
+                    className="text-sm md:text-base xl:text-lg font-medium"
                     style={{ color: "var(--text-secondary)" }}
                   >
                     Software Engineer
@@ -143,7 +143,7 @@ export default function Home() {
                   </span>
                 </div>
                 <p
-                  className="mt-2 text-xs md:text-sm max-w-xl leading-relaxed"
+                  className="mt-2 text-xs md:text-sm xl:text-base max-w-xl xl:max-w-2xl 2xl:max-w-3xl leading-relaxed"
                   style={{ color: "var(--text-secondary)", textShadow: "0 0 8px rgba(0,0,0,0.6)" }}
                 >
                   13+ years driving backend architecture, cloud migrations, AI/LLM integration &amp; engineering leadership at scale
@@ -156,7 +156,7 @@ export default function Home() {
               <a
                 href="/JanmejayaDas-2026.pdf"
                 download
-                className="header-cta-btn px-5 py-2.5 text-xs font-semibold rounded-2xl transition-all duration-300"
+                className="header-cta-btn px-5 py-2.5 xl:px-6 xl:py-3 text-xs xl:text-sm font-semibold rounded-2xl transition-all duration-300"
                 style={{
                   background: "#f59e0b",
                   color: "#0b0f1a",
@@ -169,7 +169,7 @@ export default function Home() {
               </a>
               <a
                 href="mailto:janmejaya.das1@gmail.com"
-                className="glass-card px-4 py-2 text-xs font-medium transition-colors"
+                className="glass-card px-4 py-2 xl:px-5 xl:py-2.5 text-xs xl:text-sm font-medium transition-colors"
                 style={{ color: "var(--text-secondary)" }}
               >
                 ✉&ensp;Email
@@ -178,7 +178,7 @@ export default function Home() {
                 href="https://linkedin.com/in/janmejaya-das"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="glass-card px-4 py-2 text-xs font-medium transition-colors"
+                className="glass-card px-4 py-2 xl:px-5 xl:py-2.5 text-xs xl:text-sm font-medium transition-colors"
                 style={{ color: "var(--text-secondary)" }}
               >
                 in&ensp;LinkedIn
@@ -222,7 +222,7 @@ export default function Home() {
       </header>
 
       {/* ────── Main ────── */}
-      <main className="max-w-5xl mx-auto px-4 py-12">
+      <main className="max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto px-4 xl:px-8 2xl:px-12 py-12 xl:py-16 2xl:py-20">
         {/* Tab Navigation */}
         <nav
           className="flex flex-wrap justify-center mb-10 border-b"
@@ -245,17 +245,17 @@ export default function Home() {
             Professional Experience
           </h2>
 
-          <div className="relative mt-8 pl-12 space-y-10">
+          <div className="relative mt-8 pl-12 xl:pl-16 space-y-10 xl:space-y-12">
             {/* Timeline line */}
             <div className="timeline-line" />
 
             {/* ── Microsoft People Skills ── */}
             <article className="relative animate-fade-in-up stagger-1">
               <div className="timeline-dot current" />
-              <div className="glass-card p-6">
+              <div className="glass-card p-6 xl:p-8 2xl:p-10">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
                   <div>
-                    <h3 className="text-lg font-bold" style={{ color: "var(--text-primary)" }}>
+                    <h3 className="text-lg xl:text-xl font-bold" style={{ color: "var(--text-primary)" }}>
                       Microsoft
                     </h3>
                     <p className="text-sm" style={{ color: "var(--accent-cyan)" }}>
@@ -269,7 +269,7 @@ export default function Home() {
                     Feb 2025 — Present
                   </span>
                 </div>
-                <ul className="mt-4 space-y-3 text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+                <ul className="mt-4 space-y-3 text-sm xl:text-base leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                   <li className="flex gap-2">
                     <span style={{ color: "var(--accent-cyan)" }}>▸</span>
                     <span>
@@ -312,10 +312,10 @@ export default function Home() {
             {/* ── Microsoft Intune ── */}
             <article className="relative animate-fade-in-up stagger-2">
               <div className="timeline-dot" />
-              <div className="glass-card p-6">
+              <div className="glass-card p-6 xl:p-8 2xl:p-10">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
                   <div>
-                    <h3 className="text-lg font-bold" style={{ color: "var(--text-primary)" }}>
+                    <h3 className="text-lg xl:text-xl font-bold" style={{ color: "var(--text-primary)" }}>
                       Microsoft
                     </h3>
                     <p className="text-sm" style={{ color: "var(--accent-blue)" }}>
@@ -329,7 +329,7 @@ export default function Home() {
                     Dec 2022 — Jan 2025
                   </span>
                 </div>
-                <ul className="mt-4 space-y-3 text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+                <ul className="mt-4 space-y-3 text-sm xl:text-base leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                   <li className="flex gap-2">
                     <span style={{ color: "var(--accent-blue)" }}>▸</span>
                     <span>Engineered the service modernization for 50+ microservices in Intune, driving the transformation of Stateful services into a robust Stateless architecture.</span>
@@ -357,10 +357,10 @@ export default function Home() {
             {/* ── Amazon ── */}
             <article className="relative animate-fade-in-up stagger-3">
               <div className="timeline-dot" />
-              <div className="glass-card p-6">
+              <div className="glass-card p-6 xl:p-8 2xl:p-10">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
                   <div>
-                    <h3 className="text-lg font-bold" style={{ color: "var(--text-primary)" }}>
+                    <h3 className="text-lg xl:text-xl font-bold" style={{ color: "var(--text-primary)" }}>
                       Amazon
                     </h3>
                     <p className="text-sm" style={{ color: "var(--accent-purple)" }}>
@@ -374,7 +374,7 @@ export default function Home() {
                     Aug 2021 — Nov 2022
                   </span>
                 </div>
-                <ul className="mt-4 space-y-3 text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+                <ul className="mt-4 space-y-3 text-sm xl:text-base leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                   <li className="flex gap-2">
                     <span style={{ color: "var(--accent-purple)" }}>▸</span>
                     <span>Architected and executed the decoupling of a monolithic registration web service into modular components — UI, backend microservices, AWS Lambda, and SQS — improving scalability and maintainability.</span>
@@ -394,10 +394,10 @@ export default function Home() {
             {/* ── Razorpay ── */}
             <article className="relative animate-fade-in-up stagger-4">
               <div className="timeline-dot" />
-              <div className="glass-card p-6">
+              <div className="glass-card p-6 xl:p-8 2xl:p-10">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
                   <div>
-                    <h3 className="text-lg font-bold" style={{ color: "var(--text-primary)" }}>
+                    <h3 className="text-lg xl:text-xl font-bold" style={{ color: "var(--text-primary)" }}>
                       Razorpay
                     </h3>
                     <p className="text-sm" style={{ color: "#f59e0b" }}>
@@ -411,7 +411,7 @@ export default function Home() {
                     Dec 2019 — Aug 2021
                   </span>
                 </div>
-                <ul className="mt-4 space-y-3 text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+                <ul className="mt-4 space-y-3 text-sm xl:text-base leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                   <li className="flex gap-2">
                     <span style={{ color: "#f59e0b" }}>▸</span>
                     <span>Developed merchant-facing payment features using Java and GoLang, reducing response times by a factor of seven.</span>
@@ -427,7 +427,7 @@ export default function Home() {
             {/* ── Earlier Experience ── */}
             <article className="relative animate-fade-in-up stagger-5">
               <div className="timeline-dot" />
-              <div className="glass-card p-6">
+              <div className="glass-card p-6 xl:p-8 2xl:p-10">
                 <details>
                   <summary
                     className="text-lg font-bold cursor-pointer select-none"
@@ -521,9 +521,9 @@ export default function Home() {
             Core Proficiencies
           </h2>
 
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 xl:gap-8">
             {Object.entries(SKILLS).map(([key, category]) => (
-              <div key={key} className="glass-card p-6 animate-fade-in-up">
+              <div key={key} className="glass-card p-6 xl:p-8 animate-fade-in-up">
                 <h3
                   className="text-sm font-semibold uppercase tracking-wider mb-4"
                   style={{
@@ -558,10 +558,10 @@ export default function Home() {
           </h2>
 
           <div className="mt-8 space-y-6">
-            <div className="glass-card p-6 animate-fade-in-up stagger-1">
+            <div className="glass-card p-6 xl:p-8 animate-fade-in-up stagger-1">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
                 <div>
-                  <h3 className="text-lg font-bold" style={{ color: "var(--text-primary)" }}>
+                  <h3 className="text-lg xl:text-xl font-bold" style={{ color: "var(--text-primary)" }}>
                     M.Tech in Software Systems (IoT)
                   </h3>
                   <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
@@ -577,10 +577,10 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="glass-card p-6 animate-fade-in-up stagger-2">
+            <div className="glass-card p-6 xl:p-8 animate-fade-in-up stagger-2">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
                 <div>
-                  <h3 className="text-lg font-bold" style={{ color: "var(--text-primary)" }}>
+                  <h3 className="text-lg xl:text-xl font-bold" style={{ color: "var(--text-primary)" }}>
                     Bachelor of Technology in IT
                   </h3>
                   <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
@@ -621,7 +621,7 @@ export default function Home() {
             ].map((item, i) => (
               <div
                 key={item.title}
-                className={`glass-card p-6 animate-fade-in-up stagger-${i + 1}`}
+                className={`glass-card p-6 xl:p-8 animate-fade-in-up stagger-${i + 1}`}
                 style={{
                   borderLeft: "3px solid",
                   borderImage: "var(--gradient-primary) 1",
@@ -641,7 +641,7 @@ export default function Home() {
 
       {/* ────── Footer ────── */}
       <footer className="footer-gradient py-10">
-        <div className="max-w-5xl mx-auto px-4">
+        <div className="max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto px-4 xl:px-8 2xl:px-12">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-center md:text-left">
               <h2 className="text-lg font-bold gradient-text">Janmejaya Das</h2>

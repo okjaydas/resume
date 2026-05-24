@@ -354,6 +354,81 @@ body {
   }
 }
 
+/* ─── Large-screen scaling ─── */
+@media (min-width: 1280px) {
+  .section-heading {
+    font-size: 1.75rem;
+  }
+
+  .section-heading::after {
+    width: 56px;
+    height: 3.5px;
+  }
+
+  .timeline-line {
+    left: 24px;
+  }
+
+  .timeline-dot {
+    left: 18px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .tab-btn {
+    padding: 0.875rem 2rem;
+    font-size: 0.95rem;
+  }
+
+  .header-gradient::before {
+    background:
+      radial-gradient(ellipse 900px 400px at 20% 50%, rgba(99, 102, 241, 0.12), transparent),
+      radial-gradient(ellipse 700px 300px at 80% 30%, rgba(34, 211, 238, 0.08), transparent);
+  }
+
+  .skill-pill {
+    padding: 0.5rem 1.1rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .section-heading {
+    font-size: 2rem;
+  }
+
+  .section-heading::after {
+    width: 64px;
+    height: 4px;
+  }
+
+  .timeline-line {
+    left: 28px;
+  }
+
+  .timeline-dot {
+    left: 22px;
+    width: 18px;
+    height: 18px;
+  }
+
+  .tab-btn {
+    padding: 1rem 2.25rem;
+    font-size: 1rem;
+  }
+
+  .header-gradient::before {
+    background:
+      radial-gradient(ellipse 1200px 500px at 20% 50%, rgba(99, 102, 241, 0.12), transparent),
+      radial-gradient(ellipse 900px 400px at 80% 30%, rgba(34, 211, 238, 0.08), transparent);
+  }
+
+  .skill-pill {
+    padding: 0.55rem 1.25rem;
+    font-size: 0.925rem;
+  }
+}
+
 /* ─── Footer ─── */
 .footer-gradient {
   background: linear-gradient(to top, #0b0f1a, var(--bg-secondary));
